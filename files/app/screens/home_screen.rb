@@ -1,28 +1,18 @@
-class MainController < UIViewController
+class HomeScreen < PM::Screen
+  title "Title Here"
 
-  def viewDidLoad
-    super
-
+  def on_load
     # Sets a top of 0 to be below the navigation control, it's best not to do this
     # self.edgesForExtendedLayout = UIRectEdgeNone
 
     rmq.stylesheet = MainStylesheet
-    init_nav
     rmq(self.view).apply_style :root_view
+
+    set_nav_bar_button :left, system_item: :camera, action: :nav_left_button
+    set_nav_bar_button :right, title: "Right", action: :nav_right_button
 
     # Create your UIViews here
     @hello_world_label = rmq.append(UILabel, :hello_world).get
-  end
-
-  def init_nav
-    self.title = 'Title Here'
-
-    self.navigationItem.tap do |nav|
-      nav.leftBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemAction,
-                                                                           target: self, action: :nav_left_button)
-      nav.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemRefresh,
-                                                                           target: self, action: :nav_right_button)
-    end
   end
 
   def nav_left_button
@@ -68,5 +58,6 @@ end
 
 # Then in willAnimateRotationToInterfaceOrientation
 rmq(:reapply_style).reapply_styles
+
 
 

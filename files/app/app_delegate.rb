@@ -1,14 +1,12 @@
-class AppDelegate
-  attr_reader :window
+class AppDelegate < PM::Delegate
+  include CDQ
 
-  def application(application, didFinishLaunchingWithOptions:launchOptions)
-    @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
+  status_bar true, animation: :fade
 
-    main_controller = MainController.new
-    @window.rootViewController = UINavigationController.alloc.initWithRootViewController(main_controller)
-
-    @window.makeKeyAndVisible
-    true
+  def on_load(app, options)
+    cdq.setup
+    Stripe.setDefaultPublishableKey(AppConf.stripe_token)
+    open HomeScreen.new(nav_bar: true)
   end
 
   # Remove this if you are only supporting portrait

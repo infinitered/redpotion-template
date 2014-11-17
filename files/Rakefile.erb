@@ -4,10 +4,10 @@ require 'motion/project/template/ios'
 require 'bundler'
 Bundler.require
 
-require 'ruby_motion_query'
+# require 'bubble-wrap'
 require 'ProMotion'
 require 'motion_print'
-# require 'bubble-wrap'
+require 'ruby_motion_query'
 
 Motion::Project::App.setup do |app|
 
@@ -60,3 +60,5 @@ Motion::Project::App.setup do |app|
   puts "Using profile: #{app.provisioning_profile}"
   puts "Using certificate: #{app.codesign_certificate}"
 end
+
+task :"build:simulator" => :"schema:build"
