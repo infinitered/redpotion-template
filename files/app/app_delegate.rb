@@ -5,7 +5,6 @@ class AppDelegate < PM::Delegate
 
   def on_load(app, options)
     cdq.setup
-    Stripe.setDefaultPublishableKey(AppConf.stripe_token)
     open HomeScreen.new(nav_bar: true)
   end
 
