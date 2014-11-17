@@ -4,14 +4,20 @@ require 'motion/project/template/ios'
 require 'bundler'
 Bundler.require
 
+require 'ruby_motion_query'
+require 'ProMotion'
+require 'motion_print'
 # require 'bubble-wrap'
 
 Motion::Project::App.setup do |app|
 
   app.name = '<%= name %>'
   app.identifier = 'com.your_domain_here.<%= name.downcase.strip.gsub(/\s/, '_') %>'
-  app.version = (`git rev-list HEAD --count`.strip.to_i).to_s
+
   app.short_version = '0.1.0'
+  # Get version from git
+  #app.version = (`git rev-list HEAD --count`.strip.to_i).to_s
+  app.version = app.short_version
 
   # SDK 8 for iOS 8 and above
   # app.sdk_version = '8.1'
