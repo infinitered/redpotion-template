@@ -1,4 +1,4 @@
-class MainStylesheet < ApplicationStylesheet
+class HomeStylesheet < ApplicationStylesheet
 
   def setup
     # Add sytlesheet specific setup stuff here.
