@@ -1,5 +1,11 @@
-describe HomeScreen do
-  it "should have the proper title" do
-    HomeScreen.new.title.should.equal('Your title here')
+describe "HomeScreen" do
+  tests HomeScreen
+
+  before do
+    @controller = HomeScreen.new
+  end
+
+  it "should include the text label we added" do
+    view('Hello World').should.not.be.nil
   end
 end
