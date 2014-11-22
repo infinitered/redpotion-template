@@ -1,4 +1,4 @@
-class HomeStylesheet < ApplicationStylesheet
+class HomeScreenStylesheet < ApplicationStylesheet
 
   def setup
     # Add sytlesheet specific setup stuff here.
