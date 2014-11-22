@@ -1,6 +1,6 @@
 class HomeScreen < PM::Screen
   title "Your title here"
-  stylesheet MainStylesheet
+  stylesheet HomeStylesheet
 
   def on_load
     set_nav_bar_button :left, system_item: :camera, action: :nav_left_button
