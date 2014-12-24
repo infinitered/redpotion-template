@@ -38,6 +38,20 @@ Motion::Project::App.setup do |app|
   app.interface_orientations = [:portrait, :landscape_left, :landscape_right, :portrait_upside_down]
 
   app.files += Dir.glob(File.join(app.project_dir, 'lib/**/*.rb'))
+  
+  app.development do
+    app.codesign_certificate = "iPhone Developer: YOURNAME"
+    app.provisioning_profile = "signing/<%= name.downcase.strip.gsub(/\s/, '_') %>.mobileprovision"
+  end
+
+  app.release do
+    app.entitlements['get-task-allow'] = false
+    app.codesign_certificate = 'iPhone Distribution: YOURNAME'
+    app.provisioning_profile = "signing/<%= name.downcase.strip.gsub(/\s/, '_') %>.mobileprovision"
+    app.seed_id = "YOUR_SEED_ID"
+    app.entitlements['application-identifier'] = app.seed_id + '.' + app.identifier
+    app.entitlements['keychain-access-groups'] = [ app.seed_id + '.' + app.identifier ]
+  end
 
   # Use `rake config' to see complete project settings, here are some examples:
   #
