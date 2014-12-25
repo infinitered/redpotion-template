@@ -8,6 +8,7 @@ Bundler.require
 # require 'bubble-wrap'
 
 Motion::Project::App.setup do |app|
+  # Use `rake config' to see complete project settings
 
   app.name = '<%= name %>'
   app.identifier = 'com.your_domain_here.<%= name.downcase.strip.gsub(/\s/, '_') %>'
@@ -39,6 +40,19 @@ Motion::Project::App.setup do |app|
 
   app.files += Dir.glob(File.join(app.project_dir, 'lib/**/*.rb'))
   
+  # app.fonts = ['Oswald-Regular.ttf', 'FontAwesome.otf'] # These go in /resources
+  # app.frameworks += %w(QuartzCore CoreGraphics MediaPlayer MessageUI CoreData)
+  #
+  # app.vendor_project('vendor/Flurry', :static)
+  # app.vendor_project('vendor/DSLCalendarView', :static, :cflags => '-fobjc-arc') # Using arc
+  #
+  # app.pods do
+  #   pod 'AFNetworking'
+  #   pod 'JGProgressHUD'
+  #   pod 'SVProgressHUD'
+  #   pod 'JMImageCache'
+  # end
+  
   app.development do
     app.codesign_certificate = "iPhone Developer: YOURNAME"
     app.provisioning_profile = "signing/<%= name.downcase.strip.gsub(/\s/, '_') %>.mobileprovision"
@@ -52,21 +66,6 @@ Motion::Project::App.setup do |app|
     app.entitlements['application-identifier'] = app.seed_id + '.' + app.identifier
     app.entitlements['keychain-access-groups'] = [ app.seed_id + '.' + app.identifier ]
   end
-
-  # Use `rake config' to see complete project settings, here are some examples:
-  #
-  # app.fonts = ['Oswald-Regular.ttf', 'FontAwesome.otf'] # These go in /resources
-  # app.frameworks += %w(QuartzCore CoreGraphics MediaPlayer MessageUI CoreData)
-  #
-  # app.vendor_project('vendor/Flurry', :static)
-  # app.vendor_project('vendor/DSLCalendarView', :static, :cflags => '-fobjc-arc') # Using arc
-  #
-  # app.pods do
-  #   pod 'AFNetworking'
-  #   pod 'JGProgressHUD'
-  #   pod 'SVProgressHUD'
-  #   pod 'JMImageCache'
-  # end
  
   puts "Name: #{app.name}"
   puts "Using profile: #{app.provisioning_profile}"
