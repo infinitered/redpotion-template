@@ -39,7 +39,7 @@ Motion::Project::App.setup do |app|
   app.interface_orientations = [:portrait, :landscape_left, :landscape_right, :portrait_upside_down]
 
   app.files += Dir.glob(File.join(app.project_dir, 'lib/**/*.rb'))
-  
+
   # app.fonts = ['Oswald-Regular.ttf', 'FontAwesome.otf'] # These go in /resources
   # app.frameworks += %w(QuartzCore CoreGraphics MediaPlayer MessageUI CoreData)
   #
@@ -47,12 +47,11 @@ Motion::Project::App.setup do |app|
   # app.vendor_project('vendor/DSLCalendarView', :static, :cflags => '-fobjc-arc') # Using arc
   #
   # app.pods do
-  #   pod 'AFNetworking'
   #   pod 'JGProgressHUD'
   #   pod 'SVProgressHUD'
   #   pod 'JMImageCache'
   # end
-  
+
   app.development do
     app.codesign_certificate = "iPhone Developer: YOURNAME"
     app.provisioning_profile = "signing/<%= name.downcase.strip.gsub(/\s/, '_') %>.mobileprovision"
@@ -66,7 +65,7 @@ Motion::Project::App.setup do |app|
     app.entitlements['application-identifier'] = app.seed_id + '.' + app.identifier
     app.entitlements['keychain-access-groups'] = [ app.seed_id + '.' + app.identifier ]
   end
- 
+
   puts "Name: #{app.name}"
   puts "Using profile: #{app.provisioning_profile}"
   puts "Using certificate: #{app.codesign_certificate}"
