@@ -16,7 +16,6 @@ gem "afmotion" # Networking
 #gem "bubble-wrap"
 
 # Debugging tools
-#gem "motion_print" # Useful REPL output for objects
 #gem "newclear" # Completely wipe out the simulator and rebuild
 
 # Screenshot acceptance comparison tool
