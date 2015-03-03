@@ -46,12 +46,12 @@ Motion::Project::App.setup do |app|
   # app.vendor_project('vendor/Flurry', :static)
   # app.vendor_project('vendor/DSLCalendarView', :static, :cflags => '-fobjc-arc') # Using arc
   #
-  # app.pods do
+  app.pods do
+    pod 'JMImageCache'
   #   pod 'JGProgressHUD'
   #   pod 'SVProgressHUD'
-  #   pod 'JMImageCache'
   #   pod "FontasticIcons"
-  # end
+  end
 
   app.development do
     app.codesign_certificate = "iPhone Developer: YOURNAME"
