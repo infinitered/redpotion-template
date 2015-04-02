@@ -12,7 +12,7 @@ Install the RedPotion gem and use the `potion` command to create a new project.
   $ potion create my_app
   ```
 
-You shoul then load dependencies before running the project.
+You should then load dependencies before running the project.
 
   ```
   $ bundle
