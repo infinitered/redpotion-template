@@ -5,6 +5,9 @@ gem "redpotion"
 gem "cdq" # Core Data
 gem "afmotion" # Networking
 
+# RMQ Plugins
+gem "RedAlert" # EZ Alerts and ActionSheets
+
 # Debugging tools
 gem "newclear" # Completely wipe out the simulator and rebuild
 
@@ -18,3 +21,6 @@ gem "newclear" # Completely wipe out the simulator and rebuild
 
 # Screenshot acceptance comparison tool
 # gem "motion-juxtapose", "~> 0.1"
+
+# Easy HUD with SVProgressHUD
+# gem 'motion-blitz'
