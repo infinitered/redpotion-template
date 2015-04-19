@@ -18,13 +18,17 @@ Motion::Project::App.setup do |app|
   #app.version = (`git rev-list HEAD --count`.strip.to_i).to_s
   app.version = app.short_version
 
+  # RubyMotion by default selects the latest SDK you have installed,
+  # if you would like to specify the SDK to assure consistency across multiple machines,
+  # you can do so like the following examples
+
   # SDK 8 for iOS 8 and above
-  # app.sdk_version = '8.2'
+  # app.sdk_version = '8.3'
   # app.deployment_target = '8.0'
 
   # SDK 8 for iOS 7 and above
-  app.sdk_version = '8.2'
-  app.deployment_target = '7.1'
+  # app.sdk_version = '8.3'
+  # app.deployment_target = '7.1'
 
   # Or for SDK 7
   # app.sdk_version = '7.1'
