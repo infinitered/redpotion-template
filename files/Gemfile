@@ -5,9 +5,6 @@ gem "redpotion"
 gem "cdq" # Core Data
 gem "afmotion" # Networking
 
-# RMQ Plugins
-gem "RedAlert" # EZ Alerts and ActionSheets
-
 # Debugging tools
 gem "newclear" # Completely wipe out the simulator and rebuild
 
