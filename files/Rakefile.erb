@@ -21,23 +21,14 @@ Motion::Project::App.setup do |app|
   # RubyMotion by default selects the latest SDK you have installed,
   # if you would like to specify the SDK to assure consistency across multiple machines,
   # you can do so like the following examples
-
-  # SDK 8 for iOS 8 and above
   # app.sdk_version = '8.3'
+  # app.sdk_version = '7.1'
+
+  # Target OS
+  app.deployment_target = '7.1'
   # app.deployment_target = '8.0'
 
-  # SDK 8 for iOS 7 and above
-  # app.sdk_version = '8.3'
-  # app.deployment_target = '7.1'
-
-  # Or for SDK 7
-  # app.sdk_version = '7.1'
-  # app.deployment_target = '7.0'
-
   app.icons = Dir.glob("resources/icon*.png").map{|icon| icon.split("/").last}
-
-  # prerendered_icon is only needed in iOS 6
-  #app.prerendered_icon = true
 
   app.device_family = [:iphone, :ipad]
   app.interface_orientations = [:portrait, :landscape_left, :landscape_right, :portrait_upside_down]
@@ -48,10 +39,10 @@ Motion::Project::App.setup do |app|
   # Or use all *.ttf fonts in the /resources/fonts directory:
   # app.fonts = Dir.glob("resources/fonts/*.ttf").map{|font| "fonts/#{font.split('/').last}"}
   # app.frameworks += %w(QuartzCore CoreGraphics MediaPlayer MessageUI CoreData)
-  #
+  
   # app.vendor_project('vendor/Flurry', :static)
   # app.vendor_project('vendor/DSLCalendarView', :static, :cflags => '-fobjc-arc') # Using arc
-  #
+  
   app.pods do
     pod 'JMImageCache'
   #   pod 'JGProgressHUD'
@@ -68,6 +59,8 @@ Motion::Project::App.setup do |app|
     app.entitlements['get-task-allow'] = false
     app.codesign_certificate = 'iPhone Distribution: YOURNAME'
     app.provisioning_profile = "signing/<%= name.downcase.strip.gsub(/\s/, '_') %>.mobileprovision"
+    app.entitlements['beta-reports-active'] = true # For TestFlight
+
     app.seed_id = "YOUR_SEED_ID"
     app.entitlements['application-identifier'] = app.seed_id + '.' + app.identifier
     app.entitlements['keychain-access-groups'] = [ app.seed_id + '.' + app.identifier ]
