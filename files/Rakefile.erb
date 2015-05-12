@@ -39,10 +39,10 @@ Motion::Project::App.setup do |app|
   # Or use all *.ttf fonts in the /resources/fonts directory:
   # app.fonts = Dir.glob("resources/fonts/*.ttf").map{|font| "fonts/#{font.split('/').last}"}
   # app.frameworks += %w(QuartzCore CoreGraphics MediaPlayer MessageUI CoreData)
-  
+
   # app.vendor_project('vendor/Flurry', :static)
   # app.vendor_project('vendor/DSLCalendarView', :static, :cflags => '-fobjc-arc') # Using arc
-  
+
   app.pods do
     pod 'JMImageCache'
   #   pod 'JGProgressHUD'
@@ -71,4 +71,5 @@ Motion::Project::App.setup do |app|
   puts "Using certificate: #{app.codesign_certificate}"
 end
 
+# Remove this if you aren't using CDQ
 task :"build:simulator" => :"schema:build"
