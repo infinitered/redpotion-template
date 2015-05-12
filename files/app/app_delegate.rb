@@ -1,5 +1,5 @@
 class AppDelegate < PM::Delegate
-  include CDQ
+  include CDQ # Remove this if you aren't using CDQ
 
   status_bar true, animation: :fade
 
