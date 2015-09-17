@@ -38,5 +38,10 @@ class ApplicationStylesheet < RubyMotionQuery::Stylesheet
     st.background_color = color.clear
     st.color = color.black
   end
+  
+  def rounded_image(st)
+    st.view.layer.cornerRadius = st.frame.width/2
+    st.clips_to_bounds = true
+  end  
 
 end
