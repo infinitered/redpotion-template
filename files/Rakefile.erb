@@ -24,8 +24,8 @@ Motion::Project::App.setup do |app|
   # app.sdk_version = '8.3'
   # app.sdk_version = '7.1'
 
-  # Target OS
-  app.deployment_target = '7.1'
+  # Target OS - Set this to the lowest version you want to support in the App Store
+  # app.deployment_target = '7.1'
   # app.deployment_target = '8.0'
 
   app.icons = Dir.glob("resources/icon*.png").map{|icon| icon.split("/").last}
