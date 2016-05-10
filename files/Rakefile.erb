@@ -15,7 +15,7 @@ Motion::Project::App.setup do |app|
 
   app.short_version = '0.1.0'
   # Get version from git
-  #app.version = (`git rev-list HEAD --count`.strip.to_i).to_s
+  # app.version = (`git rev-list HEAD --count`.strip.to_i).to_s
   app.version = app.short_version
 
   # RubyMotion by default selects the latest SDK you have installed,
@@ -45,14 +45,16 @@ Motion::Project::App.setup do |app|
 
   app.pods do
     pod 'SDWebImage'
-  #   pod 'JGProgressHUD'
-  #   pod 'SVProgressHUD'
-  #   pod "FontasticIcons"
+    # pod 'JGProgressHUD'
+    # pod 'SVProgressHUD'
+    # pod "FontasticIcons"
   end
 
   app.development do
     app.codesign_certificate = "iPhone Developer: YOURNAME"
     app.provisioning_profile = "signing/<%= name.downcase.strip.gsub(/\s/, '_') %>.mobileprovision"
+    # Uncomment this line to allow insecure HTTP requests (i.e. localhost)
+    # app.info_plist['NSAppTransportSecurity'] = { 'NSAllowsArbitraryLoads' => true }
   end
 
   app.release do
