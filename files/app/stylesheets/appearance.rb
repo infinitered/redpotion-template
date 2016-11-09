@@ -8,10 +8,10 @@ class StandardAppearance
         o.tintColor = rmq.color.blue
       end
 
-      UILabel.appearance.tap do |o|
-        o.setTextColor rmq.color.black
-        o.font = rmq.font.medium
-      end
+      # UILabel.appearance.tap do |o|
+      #   o.setTextColor rmq.color.black
+      #   o.font = rmq.font.medium
+      # end
 
       # UITabBar.appearance.tap do |o|
       #   o.setTintColor rmq.color.blue
